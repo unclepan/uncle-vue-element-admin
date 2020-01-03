@@ -1,7 +1,10 @@
 {
-  "name": "acc",
+  "name": "uncle-vue-element-admin",
   "version": "0.1.0",
   "private": true,
+  "description": "A magical vue admin. An out-of-box UI solution for enterprise applications. Newest development stack of vue. Lots of awesome features",
+  "author": "UNCLE <738912168@qq.com>",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:test": "vue-cli-service build --mode test",
