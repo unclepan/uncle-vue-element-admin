@@ -33,6 +33,18 @@ export const constantRoutes = [
         meta: { title: 'home', affix: true },
       },
       {
+        path: 'documentation',
+        component: () => import('@/views/documentation/index'),
+        name: 'documentation',
+        meta: { title: 'documentation', affix: true },
+      },
+      {
+        path: 'guide',
+        component: () => import('@/views/guide/index'),
+        name: 'guide',
+        meta: { title: 'guide', affix: true },
+      },
+      {
         path: 'icon',
         name: 'icon',
         component: () => import('../views/icon.vue'),
@@ -41,7 +53,7 @@ export const constantRoutes = [
       {
         path: 'test',
         name: 'test',
-        component: () => import('../views/t.vue'),
+        component: () => import('../views/test.vue'),
         meta: { title: 'test', affix: true },
       },
       ...System,

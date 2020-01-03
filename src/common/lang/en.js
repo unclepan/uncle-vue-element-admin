@@ -17,6 +17,7 @@ export default {
     close: 'Close',
     complete: 'Complete',
     icon: 'Icon',
+    documentation: 'Documentation',
   },
   guide: {
     sidebarTitle: 'Sidebar operation',

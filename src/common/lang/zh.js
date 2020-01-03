@@ -17,6 +17,7 @@ export default {
     close: '关闭',
     complete: '完成',
     icon: '图标',
+    documentation: '文档',
   },
   guide: {
     sidebarTitle: '侧边栏操作',

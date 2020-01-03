@@ -7,6 +7,20 @@ export default [
     subMenus: [],
   },
   {
+    id: '2',
+    menuName: 'documentation',
+    invokeUrl: '/documentation',
+    iconStr: 'iconhome-fill',
+    subMenus: [],
+  },
+  {
+    id: '3',
+    menuName: 'guide',
+    invokeUrl: '/guide',
+    iconStr: 'iconhome-fill',
+    subMenus: [],
+  },
+  {
     id: '998',
     menuName: 'test',
     invokeUrl: '/test',
