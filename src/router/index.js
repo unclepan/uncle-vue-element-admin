@@ -5,6 +5,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 import System from './modules/system';
+import Table from './modules/table';
 
 Vue.use(VueRouter);
 
@@ -45,6 +46,12 @@ export const constantRoutes = [
         meta: { title: 'guide', affix: true },
       },
       {
+        path: 'condition',
+        component: () => import('@/views/condition/index'),
+        name: 'condition',
+        meta: { title: 'condition' },
+      },
+      {
         path: 'icon',
         name: 'icon',
         component: () => import('../views/icon.vue'),
@@ -57,6 +64,7 @@ export const constantRoutes = [
         meta: { title: 'test', affix: true },
       },
       ...System,
+      ...Table,
     ],
   },
   { path: '*', redirect: '/404', hidden: true },

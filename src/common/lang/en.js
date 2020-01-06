@@ -18,7 +18,13 @@ export default {
     complete: 'Complete',
     icon: 'Icon',
     documentation: 'Documentation',
+    condition: 'Condition',
+    table: {
+      default: 'Table',
+      dynamic: 'Dynamic Table',
+    },
   },
+
   guide: {
     sidebarTitle: 'Sidebar operation',
     sidebarDescription: 'Open && Close sidebar',

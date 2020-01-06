@@ -18,7 +18,13 @@ export default {
     complete: '完成',
     icon: '图标',
     documentation: '文档',
+    condition: '筛选条件',
+    table: {
+      default: '表格',
+      dynamic: '动态表格',
+    },
   },
+
   guide: {
     sidebarTitle: '侧边栏操作',
     sidebarDescription: '打开或者关闭侧边栏',

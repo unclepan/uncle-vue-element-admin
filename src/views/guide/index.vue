@@ -1,9 +1,9 @@
 <template>
   <div :class="$style.guide">
-    <aside>
+    <x-aside>
       引导页对于一些第一次进入项目的人很有用，你可以简单介绍下项目的功能。本 Demo 是基于
       <a href="https://github.com/kamranahmedse/driver.js" target="_blank">driver.js.</a>
-    </aside>
+    </x-aside>
 
     <guide :key="$i18n.locale">
       <el-button icon="el-icon-question" type="primary">
@@ -15,10 +15,12 @@
 
 <script>
 import guide from 'components/guide/index.vue';
+import aside from 'components/x-aside.vue';
 
 export default {
   components: {
     guide,
+    'x-aside': aside,
   },
   data() {
     return {
@@ -34,18 +36,5 @@ export default {
 .guide{
   background: #ffffff;
   padding: 16px;
-  aside{
-    background: #eef1f6;
-    padding: 8px 24px;
-    margin-bottom: 20px;
-    border-radius: 2px;
-    display: block;
-    line-height: 32px;
-    font-size: 16px;
-    color: #2c3e50;
-    a {
-      color: #337ab7;
-    }
-  }
 }
 </style>

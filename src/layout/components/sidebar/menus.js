@@ -10,14 +10,36 @@ export default [
     id: '2',
     menuName: 'documentation',
     invokeUrl: '/documentation',
-    iconStr: 'iconhome-fill',
+    iconStr: 'iconfavorites-fill',
     subMenus: [],
   },
   {
     id: '3',
     menuName: 'guide',
     invokeUrl: '/guide',
-    iconStr: 'iconhome-fill',
+    iconStr: 'icongold-supplie-fill',
+    subMenus: [],
+  },
+  {
+    id: '4',
+    menuName: 'table.default',
+    invokeUrl: '/table',
+    iconStr: 'iconcoupons-fill',
+    subMenus: [
+      {
+        id: '5',
+        menuName: 'table.dynamic',
+        invokeUrl: '/table/dynamic/index',
+        iconStr: 'iconCurrencyConverter-fill',
+        subMenus: [],
+      },
+    ],
+  },
+  {
+    id: '6',
+    menuName: 'condition',
+    invokeUrl: '/condition',
+    iconStr: 'iconimage-text-fill',
     subMenus: [],
   },
   {
