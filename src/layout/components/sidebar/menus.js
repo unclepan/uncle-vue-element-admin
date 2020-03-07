@@ -43,6 +43,12 @@ export default [
     subMenus: [],
   },
   {
+    id: '14',
+    menuName: 'system.option.dataelement',
+    invokeUrl: `/iframe/${process.env.VUE_APP_IFRAME}`,
+    subMenus: [],
+  },
+  {
     id: '998',
     menuName: 'test',
     invokeUrl: '/test',

@@ -1,6 +1,7 @@
 <template>
   <div :class="$style.table">
     <el-table
+      ref="table"
       :data="fitTableData.row"
       border
       @selection-change="fitTableData.meta.handleSelectionChange"
@@ -16,17 +17,28 @@
       <el-table-column
         align='center'
         width="55"
-        label="更多"
+        label="展开"
         type="expand"
-        v-if="fitTableData.meta.expand.switch">
+        v-if="fitTableData.meta.expand.eswitch">
         <template slot-scope="props">
-          <el-form label-position="left" inline :class="$style['table-expand']">
+
+          <el-form
+            v-if="fitTableData.meta.expand.expandType ==='form'"
+            label-position="left"
+            inline
+            :class="$style['table-expand']">
             <el-form-item
               :label="item.label" v-for="(item) in expandFitTableDataColumn"
               :key="item.prop">
               <span>{{ props.row[item.prop] || '--' }}</span>
             </el-form-item>
           </el-form>
+
+          <div v-if="fitTableData.meta.expand.expandType ==='table'">
+            <!-- 递归组件 -->
+            <x-table :tableData="props.row.expandTableData"/>
+          </div>
+
         </template>
       </el-table-column>
 
@@ -37,7 +49,7 @@
           :label="item.label"
           :width="item.width || 'auto'"
           :align="item.align || 'center'"
-          min-width="160">
+          min-width="180">
           <template slot-scope="scope" >
             <div v-if="item.components" :key="JSON.stringify(scope.row)">
               <!-- 用组件渲染 -->
@@ -69,6 +81,7 @@
             <div :class="$style['operation-but']">
               <div :class="$style.but" v-for="(item, index) in fitTableData.operation" :key="index">
                 <el-button
+                  :disabled='item.disabledFunc ? item.disabledFunc(scope.row) : false'
                   @click="item.func(scope.row)"
                   size="mini"
                   :type="item.type || 'primary'"
@@ -88,17 +101,51 @@
 
 <script>
 import _ from 'lodash';
-import { getPropObject } from 'lib/vue-prop';
-import editPopover from './components/edit-popover/index.vue';
+import { getPropObject, getPropBoolean } from 'lib/vue-prop';
+import Sortable from 'sortablejs';
+import editPopover from './components/edit-popover.vue';
 import xSwitch from './components/x-switch.vue';
 
 export default {
+  name: 'xTable',
   props: {
     tableData: getPropObject(),
+    isSort: getPropBoolean(false),
   },
   components: {
     editPopover,
     xSwitch,
+  },
+  data() {
+    return {
+      sortable: null,
+    };
+  },
+  mounted() {
+    this.init();
+  },
+  methods: {
+    init() {
+      if (this.isSort) {
+        this.$nextTick(() => {
+          this.setSort();
+        });
+      }
+    },
+    setSort() {
+      const el = this.$refs.table.$el.querySelectorAll('.el-table__body-wrapper > table > tbody')[0];
+      this.sortable = Sortable.create(el, {
+        ghostClass: 'sortable-ghost',
+        setData(dataTransfer) {
+          // to avoid Firefox bug
+          // Detail see : https://github.com/RubaXa/Sortable/issues/1012
+          dataTransfer.setData('Text', '');
+        },
+        onEnd: (evt) => {
+          this.$emit('tableSort', evt);
+        },
+      });
+    },
   },
   computed: {
     fitTableData() {
@@ -109,9 +156,11 @@ export default {
         meta: {
           selection: false,
           handleSelectionChange: () => {},
+          // 如果expandType为form，则是省略展示，用num处理。如果expandType为table，则是表格展示，用row里面的expandTableData展示。
           expand: {
-            switch: false,
+            eswitch: false, // 折叠展示
             num: 0,
+            expandType: 'form',
           },
         },
       };
@@ -119,20 +168,34 @@ export default {
       return fit;
     },
     fitTableDataColumn() {
-      if (this.fitTableData.meta.expand.switch) {
-        return this.fitTableData.column.slice(0, this.fitTableData.meta.expand.num);
+      const { eswitch, expandType, num } = this.fitTableData.meta.expand;
+      if (eswitch) {
+        if (expandType === 'form') {
+          return this.fitTableData.column.slice(0, num);
+        }
       }
       return this.fitTableData.column;
     },
     expandFitTableDataColumn() {
-      if (this.fitTableData.meta.expand.switch) {
-        return this.fitTableData.column.slice(this.fitTableData.meta.expand.num);
+      const { eswitch, expandType, num } = this.fitTableData.meta.expand;
+      if (eswitch) {
+        if (expandType === 'form') {
+          return this.fitTableData.column.slice(num);
+        }
       }
       return [];
     },
   },
 };
 </script>
+
+<style>
+.sortable-ghost{
+  opacity: .8;
+  color: #fff!important;
+  background: #052644!important;
+}
+</style>
 
 <style lang="scss" module>
 .table{

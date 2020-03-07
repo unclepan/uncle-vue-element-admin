@@ -1,6 +1,7 @@
 export default {
   m: {
     details: 'Details',
+    iframe: 'View',
     test: 'Test',
     about: 'About',
     home: 'Home',

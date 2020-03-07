@@ -87,7 +87,8 @@ export default {
       });
     },
     addTags() {
-      const { name } = this.$route;
+      const { name, meta } = this.$route;
+      if (meta && meta.ignore) return;
       if (name) {
         if (this.tags.some(v => v.path === this.$route.path)) return;
         this.tags.push(Object.assign({}, this.$route, {

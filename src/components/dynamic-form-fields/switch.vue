@@ -1,13 +1,11 @@
 <template>
   <container :param="param">
-    <el-input
-      @blur="checkMode('handleFieldBlur', ...arguments)"
+    <el-switch
+      @change="checkMode('handleFieldBlur', ...arguments)"
       v-if="editingStatus"
-      :style="{width:'100%'}"
-      v-model.number="value"
+      v-model="value"
       v-bind="param.meta">
-      <template slot="append" v-if="param.type === 'CURRENCY'">元</template>
-    </el-input>
+    </el-switch>
     <span v-else>{{value || '字段无值'}}</span>
   </container>
 </template>
@@ -16,7 +14,7 @@
 import fieldMixin from './basic/field-mixin';
 
 export default {
-  INDEX: ['NUMBER', 'CURRENCY', 'PERCENT'],
+  INDEX: ['SWITCH'],
   mixins: [
     fieldMixin,
   ],

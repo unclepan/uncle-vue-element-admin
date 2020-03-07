@@ -19,7 +19,9 @@ export default {
 
 <style lang="scss" module>
 .app-main{
+  position: relative;
   padding: 8px;
+  min-height: calc(100vh - 86px);
 }
 </style>
 
@@ -27,16 +29,16 @@ export default {
 /* fade-transform */
 .fade-transform-leave-active,
 .fade-transform-enter-active {
-  transition: all .5s;
+  transition: all .6s;
 }
 
 .fade-transform-enter {
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateX(-10px);
 }
 
 .fade-transform-leave-to {
   opacity: 0;
-  transform: translateX(30px);
+  transform: translateX(10px);
 }
 </style>

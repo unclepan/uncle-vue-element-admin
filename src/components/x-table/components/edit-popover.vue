@@ -40,7 +40,7 @@ import message from 'lib/message';
 
 export default {
   props: {
-    row: getPropObject(),
+    row: getPropObject(), // 行数据
     column: getPropObject(),
   },
   data() {

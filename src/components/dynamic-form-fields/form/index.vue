@@ -6,7 +6,6 @@
       :rules="rules"
       ref="ruleForm"
       label-position="top">
-
       <!-- 有布局 -->
       <el-row :gutter="10" v-if="card==1">
         <el-col :class="$style.col" :xs="12" :sm="8" :lg="6"  v-for="(item, index) in formRender" :key="index">

@@ -31,7 +31,13 @@ export const constantRoutes = [
         path: 'index',
         component: () => import('@/views/home/index'),
         name: 'home',
-        meta: { title: 'home', affix: true },
+        meta: { title: 'home', affix: true }, // affix 固定钉
+      },
+      {
+        path: 'iframe/:url',
+        component: () => import('@/views/iframe'),
+        name: 'iframe',
+        meta: { title: 'iframe', ignore: true }, // ignore 忽略
       },
       {
         path: 'documentation',

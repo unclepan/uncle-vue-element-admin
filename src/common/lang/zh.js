@@ -1,6 +1,7 @@
 export default {
   m: {
     details: '详情',
+    iframe: '外链视图',
     test: '测试',
     about: '关于',
     home: '首页',

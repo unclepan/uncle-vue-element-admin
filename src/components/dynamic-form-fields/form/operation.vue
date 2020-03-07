@@ -5,6 +5,13 @@
       <span slot="button">
         <el-button size="mini" type="primary" @click="onSubmit()">确认{{type.but}}</el-button>
         <el-button size="mini" @click="cancel()">取消</el-button>
+        <template v-if="type.eventGroup && type.eventGroup.length">
+          <el-button
+            v-for="(item, index) in type.eventGroup"
+            :key="index"
+            size="mini"
+            @click="item.fun">{{item.name}}</el-button>
+        </template>
       </span>
     </x-title>
 
