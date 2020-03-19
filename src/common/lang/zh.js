@@ -24,6 +24,11 @@ export default {
       default: '表格',
       dynamic: '动态表格',
     },
+    form: {
+      default: '动态表单',
+      layout: '有布局表单',
+      basic: '常规基本表单',
+    },
   },
 
   guide: {

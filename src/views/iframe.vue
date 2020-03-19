@@ -47,5 +47,6 @@ export default {
     position: absolute;
     width: calc(100% - 16px);
     height: calc(100% - 16px);
+    background: #ffffff;
 }
 </style>

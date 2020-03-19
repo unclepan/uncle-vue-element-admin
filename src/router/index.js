@@ -6,6 +6,7 @@ import 'nprogress/nprogress.css';
 
 import System from './modules/system';
 import Table from './modules/table';
+import Form from './modules/form';
 
 Vue.use(VueRouter);
 
@@ -71,6 +72,7 @@ export const constantRoutes = [
       },
       ...System,
       ...Table,
+      ...Form,
     ],
   },
   { path: '*', redirect: '/404', hidden: true },

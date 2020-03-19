@@ -1,21 +1,16 @@
 <template>
-  <div>
-    <x-aside>
-      动态表格
-    </x-aside>
-  </div>
+    <div>
+      <router-view></router-view>
+    </div>
 </template>
 
 <script>
-import aside from 'components/x-aside.vue';
-
 export default {
   data() {
     return {
     };
   },
   components: {
-    'x-aside': aside,
   },
   mounted() {
 
@@ -26,8 +21,4 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.guide{
-  background: #ffffff;
-  padding: 16px;
-}
 </style>

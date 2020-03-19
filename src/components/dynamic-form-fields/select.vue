@@ -10,7 +10,8 @@
         v-for="(item, index) in options"
         :key="index"
         :label="item.name"
-        :value="item.value">
+        :value="item.value"
+        :disabled="item.disabled">
         </el-option>
     </el-select>
     <span v-else>{{value || '字段无值'}}</span>

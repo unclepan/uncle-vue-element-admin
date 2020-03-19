@@ -24,6 +24,11 @@ export default {
       default: 'Table',
       dynamic: 'Dynamic Table',
     },
+    form: {
+      default: 'Dynamic Form',
+      layout: 'Layout Form',
+      basic: 'Basic Form',
+    },
   },
 
   guide: {

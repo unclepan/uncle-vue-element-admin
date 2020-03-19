@@ -26,10 +26,10 @@ export default {
   margin-bottom: 18px;
   :global(.el-form-item__label){
     padding: 0;
-    line-height:20px;
+    line-height: 21px;
   }
   :global(.el-form-item__error){
-    padding-top: 0;
+    padding-top: 5px;
   }
 }
 </style>

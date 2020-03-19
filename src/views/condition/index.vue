@@ -34,8 +34,8 @@
 
     <condition ref="condition" :condList="condList"/>
 
-    <h3>点击搜索查看筛选数据：</h3>
-    <pre>{{conditionForm}}</pre>
+    <!-- <h3>点击搜索查看筛选数据：</h3>
+    <pre>{{conditionForm}}</pre> -->
 
   </div>
 </template>

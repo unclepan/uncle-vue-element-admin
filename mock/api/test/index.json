@@ -1,0 +1,42 @@
+{
+    "code":200,
+    "data":[
+        {
+            "ruleId":"70",
+            "name":"",
+            "quarter":"",
+            "maxDeptCode":"",
+            "maxDeptName":"",
+            "minDeptCode":"",
+            "minDeptName":"",
+            "calssTypeList":[
+                {
+                    "children":"11,12",
+                    "childrenArr":[
+
+                    ],
+                    "disabled":false,
+                    "id":null,
+                    "name":"A体系"
+                },
+                {
+                    "children":"21,22",
+                    "childrenArr":[
+
+                    ],
+                    "disabled":false,
+                    "id":null,
+                    "name":"B体系"
+                }
+            ],
+            "grade":"",
+            "subject":"",
+            "area":"",
+            "version":"",
+            "teachType":"",
+            "period":"",
+            "userName":""
+        }
+    ],
+    "errMessage":""
+}
