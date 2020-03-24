@@ -21,7 +21,7 @@ let readFile = (fileName, callback) => {
 
 const app = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'application/json;charset=UTF-8');
-    res.setHeader("Access-Control-Allow-Origin", "http://payroll.test.xdf.cn");
+    res.setHeader("Access-Control-Allow-Origin", "http://antcp.com");
     res.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type,Content-Length,Authorization,Accept,X-Requested-With,access-token,email,userid");
     res.setHeader("X-Powered-By", "3.2.1");

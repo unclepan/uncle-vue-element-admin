@@ -23,12 +23,31 @@ export default {
     table: {
       default: 'Table',
       dynamic: 'Dynamic Table',
+      drag: 'Drag Table',
     },
     form: {
       default: 'Dynamic Form',
       layout: 'Layout Form',
       basic: 'Basic Form',
+      communication: 'Communication',
     },
+    error: {
+      default: 'Error Page',
+      one: '404',
+      two: '401',
+    },
+    excel: {
+      default: 'Excel',
+      export: 'Export Excel',
+    },
+    components: {
+      default: 'Components',
+      quill: 'Quill',
+      dialog: 'Dialog',
+      cropper: 'Cropper',
+    },
+    comprehensive: 'Comprehensive',
+    pdf: 'PDF',
   },
 
   guide: {

@@ -18,7 +18,7 @@
         <el-col :span="14">
           <json-viewer
           :value="formRender"
-          :expand-depth=5 />
+          :expand-depth=2 />
         </el-col>
       </el-row>
     </div>
@@ -45,7 +45,6 @@ export default {
           ],
           meta: {
             placeholder: '请填写内容',
-            size: 'small',
           },
         },
         {
@@ -59,7 +58,6 @@ export default {
           meta: {
             placeholder: '请填写内容',
             type: 'textarea',
-            size: 'small',
           },
         },
         {
@@ -73,7 +71,6 @@ export default {
           ],
           meta: {
             placeholder: '请填写内容',
-            size: 'small',
           },
         },
         {
@@ -87,7 +84,6 @@ export default {
           ],
           meta: {
             placeholder: '请填写内容',
-            size: 'small',
           },
         },
         {
@@ -99,7 +95,6 @@ export default {
           describe: '时间的组件，这里只给几个基础例子，其他配置请参考element',
           meta: {
             placeholder: '选择日期',
-            size: 'small',
           },
         },
         {
@@ -123,7 +118,6 @@ export default {
           describe: '时间的组件，这里只给几个基础例子，其他配置请参考element',
           meta: {
             placeholder: '请选择',
-            size: 'small',
           },
         },
         {
@@ -136,7 +130,6 @@ export default {
           ],
           meta: {
             placeholder: '请选择内容',
-            size: 'small',
           },
           describe: '选择器是个强大的组件，这里只给几个基础例子，其他配置请参考element',
           options: (cb) => {
@@ -172,7 +165,6 @@ export default {
           ],
           meta: {
             placeholder: '请选择内容',
-            size: 'small',
           },
           options: (cb) => {
             const res = {
@@ -197,7 +189,6 @@ export default {
           ],
           meta: {
             placeholder: '请选择内容',
-            size: 'small',
             disabled: true,
           },
           options: (cb) => {
@@ -224,7 +215,6 @@ export default {
           ],
           meta: {
             placeholder: '请选择内容',
-            size: 'small',
             clearable: true,
           },
           options: (cb) => {
@@ -250,7 +240,6 @@ export default {
           ],
           meta: {
             placeholder: '请选择内容',
-            size: 'small',
             multiple: true,
           },
           options: (cb) => {

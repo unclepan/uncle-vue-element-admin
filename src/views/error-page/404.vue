@@ -10,7 +10,7 @@
       <div :class="$style['bullshit']">
         <div :class="$style['bullshit__oops']">OOPS!</div>
         <div :class="$style['bullshit__info']">版权所有，保留所有权利！
-          <a style="color:#20a0ff" href="http://www.xdf.cn/" target="_blank">xdf.cn</a>
+          <a style="color:#20a0ff" href="http://www.antcp.com/" target="_blank">antcp.com</a>
         </div>
         <div :class="$style['bullshit__headline']">{{ message }}</div>
         <div :class="$style['bullshit__info']">请检查您输入的网址是否正确，或单击下面的按钮返回主页。</div>
@@ -32,7 +32,7 @@ export default {
     },
   },
   created() {
-    window.xdfLoading.hide();
+    window.yangpanLoading.hide();
   },
 };
 </script>

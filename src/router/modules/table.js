@@ -1,9 +1,15 @@
 const dynamic = [
   {
-    path: 'dynamic/index',
+    path: 'dynamic',
     name: 'table.dynamic',
-    component: () => import('../../views/table/dynamic/index.vue'),
+    component: () => import('../../views/table/dynamic.vue'),
     meta: { title: 'table.dynamic' },
+  },
+  {
+    path: 'drag',
+    name: 'table.drag',
+    component: () => import('../../views/table/drag.vue'),
+    meta: { title: 'table.drag' },
   },
 ];
 

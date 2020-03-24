@@ -18,7 +18,7 @@
             </router-link>
           </li>
           <li>
-            <a href="http://www.xdf.cn/">随便看看</a>
+            <a href="http://www.antcp.com/">随便看看</a>
           </li>
         </ul>
       </el-col>
@@ -40,7 +40,7 @@ export default {
     };
   },
   created() {
-    window.xdfLoading.hide();
+    window.yangpanLoading.hide();
   },
   methods: {
     back() {

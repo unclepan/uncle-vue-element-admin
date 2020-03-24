@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import message from 'lib/message';
 import JsonViewer from 'vue-json-viewer';
 import aside from 'components/x-aside.vue';
 import xTable from 'components/x-table/index.vue';
@@ -45,49 +46,58 @@ export default {
             width: '180',
           },
           {
-            prop: 'bankName',
-            label: '开户银行',
-          },
-          {
-            prop: 'accountName',
-            label: '我方账户名称',
-          },
-          {
-            prop: 'accountNo',
-            label: '账号',
+            prop: 'colRuleId',
+            aliasProp: 'colRule',
+            label: '规则(下拉)',
+            components: {
+              key: 'edit-popover',
+              type: 'el-select',
+              meta: {
+                placeholder: '请选择内容',
+              },
+              children: {
+                type: 'el-option',
+                options: [
+                  {
+                    label: '规则1',
+                    value: 1,
+                  },
+                  {
+                    label: '规则2',
+                    value: 2,
+                  },
+                ],
+              },
+              func: (data, cb) => {
+                message.success('编辑成功');
+                cb();
+              },
+            },
           },
           {
             prop: 'noticeUsers',
-            label: '记账通知人',
+            label: '记账通知人(输入框)',
             components: {
               key: 'edit-popover',
               type: 'el-input',
               meta: {
                 placeholder: '请输入内容',
               },
-              func: (data, cb) => {
-                console.log(data);
+              func: (cb) => {
+                // console.log(data);
                 cb();
               },
             },
           },
           {
             prop: 'valid',
-            label: '生效状态',
+            label: '生效状态(开关)',
             components: {
               key: 'x-switch',
-              func: (data) => {
-                console.log(data);
+              func: () => {
+                // console.log(data);
               },
             },
-          },
-          {
-            prop: 'lastModifiedUser',
-            label: '最后操作人',
-          },
-          {
-            prop: 'lastModifiedTime',
-            label: '最后操作时间',
           },
           {
             prop: 'memo',
@@ -97,8 +107,8 @@ export default {
         row: [], // 行数据
         operation: [{
           label: '编辑',
-          func: (data) => {
-            console.log(data);
+          func: () => {
+            // console.log(data);
           },
         }],
       },
@@ -117,6 +127,7 @@ export default {
     init() {
       this.tableData.row = [
         {
+          colRuleId: 1,
           accountId: '111111',
           accountName: '12',
           accountNo: '12123',
@@ -136,6 +147,7 @@ export default {
           logStats: null,
         },
         {
+          colRuleId: 2,
           accountId: '2222222',
           accountName: '洛阳学校',
           accountNo: '379900037510506',

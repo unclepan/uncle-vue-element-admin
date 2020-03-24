@@ -4,9 +4,10 @@ import Layout from 'layout/index.vue';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
-import System from './modules/system';
+import Excel from './modules/excel';
 import Table from './modules/table';
 import Form from './modules/form';
+import Components from './modules/components';
 
 Vue.use(VueRouter);
 
@@ -59,6 +60,12 @@ export const constantRoutes = [
         meta: { title: 'condition' },
       },
       {
+        path: 'comprehensive',
+        component: () => import('@/views/comprehensive/index'),
+        name: 'comprehensive',
+        meta: { title: 'comprehensive' },
+      },
+      {
         path: 'icon',
         name: 'icon',
         component: () => import('../views/icon.vue'),
@@ -70,10 +77,23 @@ export const constantRoutes = [
         component: () => import('../views/test.vue'),
         meta: { title: 'test', affix: true },
       },
-      ...System,
+      {
+        path: 'pdf',
+        name: 'pdf',
+        component: () => import('../views/pdf/index.vue'),
+        meta: { title: 'pdf' },
+      },
+      ...Excel,
       ...Table,
       ...Form,
+      ...Components,
     ],
+  },
+  {
+    path: '/pdf/download',
+    name: 'pdfDownload',
+    component: () => import('../views/pdf/download.vue'),
+    meta: { title: 'pdfDownload' },
   },
   { path: '*', redirect: '/404', hidden: true },
 

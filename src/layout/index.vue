@@ -43,7 +43,7 @@ export default {
       setTimeout(() => {
         this.isShow = true;
         this.$nextTick(() => {
-          window.xdfLoading.hide();
+          window.yangpanLoading.hide();
         });
       }, 1000);
       this.menuList = menus;

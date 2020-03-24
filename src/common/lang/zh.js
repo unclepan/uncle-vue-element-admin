@@ -23,12 +23,31 @@ export default {
     table: {
       default: '表格',
       dynamic: '动态表格',
+      drag: '拖拽表格',
     },
     form: {
       default: '动态表单',
       layout: '有布局表单',
-      basic: '常规基本表单',
+      basic: '常规布局表单',
+      communication: '表单通信',
     },
+    error: {
+      default: '错误页面',
+      one: '404',
+      two: '401',
+    },
+    excel: {
+      default: 'Excel',
+      export: '导出Excel',
+    },
+    components: {
+      default: '组件资源',
+      quill: '富文本编辑器',
+      dialog: '可拖拽弹窗',
+      cropper: '裁剪',
+    },
+    comprehensive: '综合实例',
+    pdf: 'PDF',
   },
 
   guide: {

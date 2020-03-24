@@ -29,7 +29,13 @@ export default [
       {
         id: '5',
         menuName: 'table.dynamic',
-        invokeUrl: '/table/dynamic/index',
+        invokeUrl: '/table/dynamic',
+        subMenus: [],
+      },
+      {
+        id: '14',
+        menuName: 'table.drag',
+        invokeUrl: '/table/drag',
         subMenus: [],
       },
     ],
@@ -38,7 +44,7 @@ export default [
     id: '10',
     menuName: 'form.default',
     invokeUrl: '/form',
-    iconStr: 'iconcoupons-fill',
+    iconStr: 'iconall-fill',
     subMenus: [
       {
         id: '11',
@@ -52,6 +58,12 @@ export default [
         invokeUrl: '/form/basic',
         subMenus: [],
       },
+      {
+        id: '13',
+        menuName: 'form.communication',
+        invokeUrl: '/form/communication',
+        subMenus: [],
+      },
     ],
   },
   {
@@ -62,11 +74,52 @@ export default [
     subMenus: [],
   },
   {
+    id: '14',
+    menuName: 'comprehensive',
+    invokeUrl: '/comprehensive',
+    iconStr: 'icontopraning-fill',
+    subMenus: [],
+  },
+  {
+    id: '15',
+    menuName: 'error.default',
+    invokeUrl: '/error',
+    iconStr: 'iconstop-fill',
+    subMenus: [
+      {
+        id: '16',
+        menuName: 'error.one',
+        invokeUrl: '/404',
+        subMenus: [],
+      },
+      {
+        id: '17',
+        menuName: 'error.two',
+        invokeUrl: '/401',
+        subMenus: [],
+      },
+    ],
+  },
+  {
     id: '7',
     menuName: 'iframe',
     invokeUrl: `/iframe/${process.env.VUE_APP_IFRAME}`,
     iconStr: 'iconproduct1',
     subMenus: [],
+  },
+  {
+    id: '20',
+    menuName: 'excel.default',
+    invokeUrl: '/excel',
+    iconStr: 'iconfeeds-fill',
+    subMenus: [
+      {
+        id: '21',
+        menuName: 'excel.export',
+        invokeUrl: '/excel/export',
+        subMenus: [],
+      },
+    ],
   },
   {
     id: '8',
@@ -80,6 +133,39 @@ export default [
     menuName: 'icon',
     invokeUrl: '/icon',
     iconStr: 'iconcollection-fill',
+    subMenus: [],
+  },
+  {
+    id: '22',
+    menuName: 'components.default',
+    invokeUrl: '/components',
+    iconStr: 'iconfolder-fill',
+    subMenus: [
+      {
+        id: '23',
+        menuName: 'components.quill',
+        invokeUrl: '/components/quill',
+        subMenus: [],
+      },
+      {
+        id: '24',
+        menuName: 'components.dialog',
+        invokeUrl: '/components/dialog',
+        subMenus: [],
+      },
+      {
+        id: '25',
+        menuName: 'components.cropper',
+        invokeUrl: '/components/cropper',
+        subMenus: [],
+      },
+    ],
+  },
+  {
+    id: '26',
+    menuName: 'pdf',
+    invokeUrl: '/pdf',
+    iconStr: 'iconpin-fill',
     subMenus: [],
   },
 ];

@@ -40,5 +40,5 @@ class Loading {
     }
   }
 }
-window.xdfLoading = new Loading();
-window.xdfLoading.show();
+window.yangpanLoading = new Loading();
+window.yangpanLoading.show();

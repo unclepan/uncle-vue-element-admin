@@ -279,8 +279,8 @@ export default {
     'x-aside': aside,
   },
   methods: {
-    add(data) {
-      console.log(data);
+    add() {
+      // console.log(data);
     },
     handleDrawer() {
       this.$refs.drawer.open();

@@ -6,9 +6,45 @@
             "name":"",
             "quarter":"",
             "maxDeptCode":"",
-            "maxDeptName":"",
+            "maxDeptName":"优能中学部门",
             "minDeptCode":"",
-            "minDeptName":"",
+            "minDeptName":"优能初中部",
+            "calssTypeList":[
+                {
+                    "children":"11,12",
+                    "childrenArr":[
+
+                    ],
+                    "disabled":false,
+                    "id":null,
+                    "name":"A体系"
+                },
+                {
+                    "children":"21,22",
+                    "childrenArr":[
+
+                    ],
+                    "disabled":false,
+                    "id":null,
+                    "name":"B体系"
+                }
+            ],
+            "grade":"",
+            "subject":"",
+            "area":"",
+            "version":"",
+            "teachType":"",
+            "period":"",
+            "userName":""
+        },
+        {
+            "ruleId":"80",
+            "name":"",
+            "quarter":"",
+            "maxDeptCode":"",
+            "maxDeptName":"优能中学部门",
+            "minDeptCode":"",
+            "minDeptName":"优能初中部",
             "calssTypeList":[
                 {
                     "children":"11,12",
