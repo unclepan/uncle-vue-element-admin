@@ -51,6 +51,7 @@ export default {
     },
     comprehensive: '综合实例',
     pdf: 'PDF',
+    monitor: '埋点方案',
   },
 
   guide: {

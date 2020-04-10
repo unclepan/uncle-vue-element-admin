@@ -51,6 +51,7 @@ export default {
     },
     comprehensive: 'Comprehensive',
     pdf: 'PDF',
+    monitor: 'Monitor',
   },
 
   guide: {

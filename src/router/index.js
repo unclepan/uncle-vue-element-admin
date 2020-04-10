@@ -83,6 +83,12 @@ export const constantRoutes = [
         component: () => import('../views/pdf/index.vue'),
         meta: { title: 'pdf' },
       },
+      {
+        path: 'monitor',
+        name: 'monitor',
+        component: () => import('../views/monitor.vue'),
+        meta: { title: 'monitor' },
+      },
     ],
   },
   {

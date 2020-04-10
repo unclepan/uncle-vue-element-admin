@@ -168,4 +168,11 @@ export default [
     iconStr: 'iconpin-fill',
     subMenus: [],
   },
+  {
+    id: '27',
+    menuName: 'monitor',
+    invokeUrl: '/monitor',
+    iconStr: 'iconCurrencyConverter-fill',
+    subMenus: [],
+  },
 ];
