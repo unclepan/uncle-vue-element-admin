@@ -40,7 +40,8 @@ export default {
         },
         bar: {
           background: '#aaaaaa',
-          onlyShowBarOnScroll: false,
+          onlyShowBarOnScroll: true,
+          opacity: 0.5,
         },
       },
     };
