@@ -44,20 +44,26 @@ export default {
     },
   },
   mounted() {
-    console.log('this is current quill instance object', this.editor);
+    // console.log('this is current quill instance object', this.editor);
   },
   methods: {
-    onEditorBlur(quill) {
-      console.log('editor blur!', quill);
-    },
-    onEditorFocus(quill) {
-      console.log('editor focus!', quill);
-    },
-    onEditorReady(quill) {
-      console.log('editor ready!', quill);
-    },
-    onEditorChange({ quill, html, text }) {
-      console.log('editor change!', quill, html, text);
+    // onEditorBlur(quill) {
+    //   console.log('editor blur!', quill);
+    // },
+    // onEditorFocus(quill) {
+    //   console.log('editor focus!', quill);
+    // },
+    // onEditorReady(quill) {
+    //   console.log('editor ready!', quill);
+    // },
+    // onEditorChange({ quill, html, text }) {
+    //   console.log('editor change!', quill, html, text);
+    //   this.content = html;
+    // },
+    onEditorBlur() {},
+    onEditorFocus() {},
+    onEditorReady() {},
+    onEditorChange({ html }) {
       this.content = html;
     },
   },
