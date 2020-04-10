@@ -15,13 +15,13 @@ export const constantRoutes = [
   {
     path: '/404',
     component: () => import('@/views/error-page/404'),
-    name: '404',
+    name: 'err404',
     meta: { title: '404' },
   },
   {
     path: '/401',
     component: () => import('@/views/error-page/401'),
-    name: '401',
+    name: 'err401',
     meta: { title: '401' },
   },
   {
@@ -38,8 +38,8 @@ export const constantRoutes = [
       {
         path: 'iframe/:url',
         component: () => import('@/views/iframe'),
-        name: 'iframe',
-        meta: { title: 'iframe', ignore: true, noRefresh: true }, // ignore 忽略
+        name: 'iframe.default',
+        meta: { title: 'iframe.default', ignore: true, noRefresh: true }, // ignore 忽略
       },
       {
         path: 'documentation',
@@ -75,7 +75,7 @@ export const constantRoutes = [
         path: 'test',
         name: 'test',
         component: () => import('../views/test.vue'),
-        meta: { title: 'test', affix: true },
+        meta: { title: 'test' },
       },
       {
         path: 'pdf',

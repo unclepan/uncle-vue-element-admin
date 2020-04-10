@@ -5,11 +5,11 @@
       <a href="https://github.com/kamranahmedse/driver.js" target="_blank">driver.js.</a>
     </x-aside>
 
-    <guide :key="$i18n.locale">
+    <x-guide :key="$i18n.locale">
       <el-button icon="el-icon-question" type="primary">
         {{$t('m.guide')}}
       </el-button>
-    </guide>
+    </x-guide>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ import aside from 'components/x-aside.vue';
 export default {
   name: 'guide',
   components: {
-    guide,
+    'x-guide': guide,
     'x-aside': aside,
   },
   data() {

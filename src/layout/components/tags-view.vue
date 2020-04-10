@@ -122,14 +122,19 @@ export default {
     toLastView(visitedViews) {
       const latestView = visitedViews.slice(-1)[0]; // 找到最后一个元素
       if (latestView) {
-        this.$router.push(latestView);
+        const { meta } = latestView;
+        if (meta.ignore) { // 外部视图标识
+          this.$router.push({ path: latestView.path, query: latestView.query, fullPath: latestView.fullPath });
+        } else {
+          this.$router.push(latestView);
+        }
       } else {
         this.$router.push('/');
       }
     },
     fix() { // 外链视窗才用
       const { routerAliasName } = this.$route.query;
-      return `system.${routerAliasName}`;
+      return `${routerAliasName}`;
     },
   },
 };

@@ -8,7 +8,6 @@
 
 <script>
 export default {
-  name: 'Guide',
   data() {
     return {
       driver: null,

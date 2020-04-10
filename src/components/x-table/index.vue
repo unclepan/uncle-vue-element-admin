@@ -113,7 +113,6 @@ import tooltip from './components/tooltip.vue';
 import xSwitch from './components/x-switch.vue';
 
 export default {
-  name: 'xTable',
   props: {
     tableData: getPropObject(),
     isSort: getPropBoolean(false),

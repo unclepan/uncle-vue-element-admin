@@ -25,7 +25,7 @@
 <script>
 
 export default {
-  name: 'Page404',
+  name: 'err404',
   computed: {
     message() {
       return '这个页面走丢了';

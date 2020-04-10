@@ -33,7 +33,7 @@
 import errGif from '@/assets/images/401_images/401.gif';
 
 export default {
-  name: 'Page401',
+  name: 'err401',
   data() {
     return {
       errGif: `${errGif}?${+new Date()}`,

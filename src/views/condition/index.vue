@@ -32,7 +32,7 @@
       </span>
     </x-title>
 
-    <condition ref="condition" :condList="condList"/>
+    <x-condition ref="condition" :condList="condList"/>
 
     <!-- <h3>点击搜索查看筛选数据：</h3>
     <pre>{{conditionForm}}</pre> -->
@@ -52,7 +52,7 @@ export default {
   components: {
     xTitle,
     JsonViewer,
-    condition,
+    'x-condition': condition,
     xDrawer,
     'x-aside': aside,
   },

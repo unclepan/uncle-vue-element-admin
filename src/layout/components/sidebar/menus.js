@@ -121,13 +121,13 @@ export default [
       },
     ],
   },
-  {
-    id: '8',
-    menuName: 'test',
-    invokeUrl: '/test',
-    iconStr: 'iconsmile-fill',
-    subMenus: [],
-  },
+  // {
+  //   id: '8',
+  //   menuName: 'test',
+  //   invokeUrl: '/test',
+  //   iconStr: 'iconsmile-fill',
+  //   subMenus: [],
+  // },
   {
     id: '9',
     menuName: 'icon',

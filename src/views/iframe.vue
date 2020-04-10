@@ -5,7 +5,7 @@
 import { isExternal } from 'lib/validate';
 
 export default {
-  name: 'iframe',
+  name: 'iframe.default',
   data() {
     return {
       src: '',
@@ -27,8 +27,10 @@ export default {
     },
   },
   watch: {
-    $route() {
-      this.init();
+    $route(nv) {
+      if (nv.name === 'iframe.default') {
+        this.init();
+      }
     },
     loading(nv) {
       if (!nv) {
