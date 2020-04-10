@@ -19,6 +19,12 @@ const dynamic = [
     component: () => import('../../views/components-demo/cropper.vue'),
     meta: { title: 'components.cropper' },
   },
+  {
+    path: 'sortable',
+    name: 'components.sortable',
+    component: () => import('../../views/components-demo/sortable.vue'),
+    meta: { title: 'components.sortable' },
+  },
 ];
 
 export default [

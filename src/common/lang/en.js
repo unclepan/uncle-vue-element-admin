@@ -48,6 +48,7 @@ export default {
       quill: 'Quill',
       dialog: 'Dialog',
       cropper: 'Cropper',
+      sortable: 'Sortable',
     },
     comprehensive: 'Comprehensive',
     pdf: 'PDF',

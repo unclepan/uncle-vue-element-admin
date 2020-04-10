@@ -159,6 +159,12 @@ export default [
         invokeUrl: '/components/cropper',
         subMenus: [],
       },
+      {
+        id: '28',
+        menuName: 'components.sortable',
+        invokeUrl: '/components/sortable',
+        subMenus: [],
+      },
     ],
   },
   {

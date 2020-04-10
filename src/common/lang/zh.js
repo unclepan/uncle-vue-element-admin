@@ -48,6 +48,7 @@ export default {
       quill: '富文本编辑器',
       dialog: '可拖拽弹窗',
       cropper: '裁剪',
+      sortable: '可拖拽看板',
     },
     comprehensive: '综合实例',
     pdf: 'PDF',
