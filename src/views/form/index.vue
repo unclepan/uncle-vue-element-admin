@@ -30,6 +30,7 @@ import aside from 'components/x-aside.vue';
 import operation from 'components/dynamic-form-fields/form/operation.vue';
 
 export default {
+  name: 'form.layout',
   data() {
     return {
       type: {

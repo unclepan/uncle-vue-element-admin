@@ -2,7 +2,7 @@
  <el-upload
     :class="$style.upload"
     drag
-    :action="`${baseApi}/acc/file/upload`"
+    :action="`${baseApi}/file/upload`"
     :headers="{
       userToken
     }"

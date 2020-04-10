@@ -4,8 +4,8 @@
       @blur="checkMode('handleFieldBlur', ...arguments)"
       v-if="editingStatus"
       :style="{width:'100%'}"
-      v-model="value"
-      v-bind="addParam">
+      v-model.trim="value"
+      v-bind="fixParam">
     </el-input>
     <span v-else>{{value || '字段无值'}}</span>
   </container>
@@ -21,7 +21,7 @@ export default {
     fieldMixin,
   ],
   computed: {
-    addParam() {
+    fixParam() {
       if (this.$options.TYPEINDEX.indexOf(this.param.type) > -1) {
         return { ...this.param.meta, type: this.param.type.toLowerCase() };
       }

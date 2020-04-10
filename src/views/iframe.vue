@@ -5,6 +5,7 @@
 import { isExternal } from 'lib/validate';
 
 export default {
+  name: 'iframe',
   data() {
     return {
       src: '',
@@ -32,9 +33,8 @@ export default {
     loading(nv) {
       if (!nv) {
         const receiver = document.getElementById('receiver').contentWindow;
-        const userToken = localStorage.getItem('userToken');
         this.$nextTick(() => {
-          receiver.postMessage({ appName: 'acc', userToken }, '*');
+          receiver.postMessage({ appName: 'antcp' }, '*');
         });
       }
     },

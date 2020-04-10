@@ -1,10 +1,5 @@
 <template>
-    <span v-if="pickUp" :class="$style['pick-up']" >
-      <span :class="$style.label">{{label}}：</span>
-      {{valueName.fullName === '请选择' ? '--' : valueName.fullName }}
-    </span>
     <el-popover
-        v-else
         placement="bottom-start"
         :width="popoverWidth"
         @hide="hidePopover"
@@ -12,17 +7,17 @@
         <div :class="$style['wrap-radio-group']">
             <div v-if="isSearch" :class="$style['search-string']" >
                 <el-input
+                    @input="search()"
                     v-model="searchString"
                     placeholder="筛选"
                     size="medium"
                     clearable>
                 </el-input>
             </div>
-            <el-radio-group v-model="changeData" v-if="options.length">
-                <template v-for="item in options">
+            <el-radio-group v-model="changeData" v-if="optionsList.length">
+                <template v-for="item in optionsList">
                     <el-radio
                         :style="{width:labelWidth}"
-                        v-show="filterRadio(item)"
                         :label="item.value"
                         :key="item.value">
                         <span>{{item.name}}</span>
@@ -55,6 +50,7 @@
 </template>
 
 <script>
+import _ from 'lodash';
 import {
   getPropString, getPropBoolean, getPropNumber, getPropFunction,
 } from 'lib/vue-prop';
@@ -63,22 +59,25 @@ export default {
 
   props: {
     checked: {},
-    labelWidth: getPropString('32.8%'),
+    labelWidth: getPropString('50%'),
     substr: getPropNumber(12),
     popoverWidth: getPropString('320'),
     label: getPropString('单选型筛选组件'),
-    isClearable: getPropBoolean(false),
-    pickUp: getPropBoolean(false),
-    optionsFun: getPropFunction(),
-    isSearch: getPropBoolean(true),
-    initCb: getPropFunction(),
+    isClearable: getPropBoolean(false), // 是否可清空
+    optionsFun: getPropFunction(), // 获得options
+    isSearch: getPropBoolean(true), // 是否可以搜索
+    remote: getPropBoolean(false), // 是否远程搜索
+    initCb: getPropFunction(), // 组件初始化之后（获得options之后）做的操作
+    dataChange: getPropFunction(),
   },
   data() {
     return {
       searchString: '',
       visible: false,
       emptyingOperation: false,
-      options: [],
+      innerOptions: [], // 内部全量options
+      optionsList: [],
+      debounceGetOptions: () => {},
     };
   },
   model: {
@@ -92,30 +91,34 @@ export default {
       },
       set(val) {
         this.$emit('change', val);
+        this.dataChange(val);
         return val;
       },
     },
     valueName() {
-      const v1 = this.options.filter(item => item.value === this.changeData);
+      const v1 = this.optionsList.filter(item => item.value === this.changeData);
       const v2 = v1.map(item => item.name);
       return { name: v2.join('，') || '请选择', value: v1, fullName: v2.join('，') || '请选择' };
     },
   },
   created() {
     this.init();
+    this.debounceGetOptions = _.debounce(this.init, 500);
   },
   methods: {
-    async init() {
-      this.options = await this.optionsFun();
+    async init(q) {
+      this.innerOptions = await this.optionsFun(q);
+      this.optionsList = _.cloneDeep(this.innerOptions);
       this.initCb(this);
     },
-    filterRadio(val) {
-      const valueName = val.name;
-      return valueName.toLowerCase().indexOf(this.searchString.toLowerCase().trim()) >= 0;
+    async search() {
+      if (this.remote) {
+        this.debounceGetOptions(this.searchString);
+      } else {
+        this.optionsList = this.innerOptions.filter(item => item.name.toLowerCase().indexOf(this.searchString.toLowerCase().trim()) >= 0 || item.value === this.changeData);
+      }
     },
-    hidePopover() {
-      this.searchString = '';
-    },
+    hidePopover() {},
     clearable() {
       this.changeData = '';
     },

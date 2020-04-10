@@ -2,10 +2,9 @@
   <div :class="$style.layout">
     <sidebar :menuList='menuList'/>
     <div :class="$style['main-container']" :style="{paddingLeft: isCollapse ? '64px': '200px', minWidth: '960px'}">
-      <navbar
-        @logout="logout"/>
-      <tags-view id="handler-tags-view"/>
-      <app-main v-if="isShow"/>
+      <navbar @logout="logout"/>
+       <tags-view id="handler-tags-view" @refresh="reloadView"/>
+      <app-main ref="appMain" v-if="isShow"/>
     </div>
   </div>
 </template>
@@ -39,6 +38,9 @@ export default {
     this.init();
   },
   methods: {
+    reloadView() {
+      this.$refs.appMain.reload();
+    },
     init() {
       setTimeout(() => {
         this.isShow = true;

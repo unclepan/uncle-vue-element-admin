@@ -17,6 +17,7 @@
 import aside from 'components/x-aside.vue';
 
 export default {
+  name: 'pdf',
   components: {
     'x-aside': aside,
   },

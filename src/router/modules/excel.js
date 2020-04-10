@@ -1,3 +1,5 @@
+import Layout from 'layout/index.vue';
+
 const dynamic = [
   {
     path: 'export',
@@ -9,9 +11,9 @@ const dynamic = [
 
 export default [
   {
-    path: 'excel',
+    path: '/excel',
     name: 'excel.default',
-    component: () => import('../../views/excel/layout.vue'),
+    component: Layout,
     redirect: 'noRedirect',
     meta: { title: 'excel.default' },
     children: [

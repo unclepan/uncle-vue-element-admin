@@ -3,36 +3,42 @@
     <el-form
       :inline="true"
       :model="ruleForm"
-      :rules="rules"
       ref="ruleForm"
       label-position="top">
+
       <!-- 有布局 -->
       <el-row :gutter="10" v-if="card==1">
-        <el-col :class="$style.col" :xs="12" :sm="8" :lg="6"  v-for="(item, index) in formRender" :key="index">
-          <el-card :class="$style.card" shadow="hover" :body-style="{ padding: '8px',paddingBottom:'0', minHeight: '100px'}">
-            <component
-              :key="item.name"
-              :class="$style.block"
-              v-model="ruleForm[`${item.name}`]"
-              :param="item"
-              v-bind:is="getKey(item.type)"
-              :fieldEmitter="fieldEmitter">
-            </component>
-          </el-card>
-        </el-col>
+        <template v-for="(item, index) in formRender" >
+          <el-col :class="$style.col" :xs="12" :sm="8" :lg="6" :key="index" v-if="!item.hide">
+            <el-card :class="$style.card" shadow="hover" :body-style="{ padding: '8px',paddingBottom:'0', minHeight: '100px'}">
+              <component
+                :key="item.name"
+                :class="$style.block"
+                v-model="ruleForm[`${item.name}`]"
+                :param="item"
+                v-bind:is="getKey(item.type)"
+                :fieldEmitter="fieldEmitter"
+                @fielsChange="(val)=>$emit('fielsChange', val)">
+              </component>
+            </el-card>
+          </el-col>
+        </template>
       </el-row>
 
       <!-- 无布局 -->
       <template v-else-if="card==2">
+        <template v-for="(item) in formRender">
         <component
-          v-for="(item) in formRender"
+          v-if="!item.hide"
           :key="item.name"
           :class="$style.block"
           v-model="ruleForm[`${item.name}`]"
           :param="item"
           v-bind:is="getKey(item.type)"
-          :fieldEmitter="fieldEmitter">
+          :fieldEmitter="fieldEmitter"
+          @fielsChange="(val)=>$emit('fielsChange', val)">
         </component>
+        </template>
       </template>
     </el-form>
   </div>
@@ -51,23 +57,16 @@ export default {
   },
   data() {
     const ruleForm = {};
-    const rules = {};
     this.formRender.forEach((item) => {
       ruleForm[item.name] = item.value;
-      rules[item.name] = item.rules;
     });
     return {
       ruleForm,
-      rules,
       fieldEmitter: new EventEmitter(),
     };
   },
   components: {
     ...field,
-  },
-  created() {
-  },
-  mounted() {
   },
   methods: {
     getKey(data) {

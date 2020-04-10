@@ -1,3 +1,5 @@
+import Layout from 'layout/index.vue';
+
 const dynamic = [
   {
     path: 'dynamic',
@@ -15,9 +17,9 @@ const dynamic = [
 
 export default [
   {
-    path: 'table',
+    path: '/table',
     name: 'table.default',
-    component: () => import('../../views/table/layout.vue'),
+    component: Layout,
     redirect: 'noRedirect',
     meta: { title: 'table.default' },
     children: [

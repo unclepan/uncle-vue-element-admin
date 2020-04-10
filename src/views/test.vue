@@ -38,6 +38,7 @@ import EventEmitter from 'wolfy87-eventemitter';
 
 
 export default {
+  name: 'test',
   data() {
     return {
       lang: 'zh-CN',

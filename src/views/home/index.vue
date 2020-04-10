@@ -17,6 +17,7 @@ import pieChart from './components/pie-chart.vue';
 import barChart from './components/bar-chart.vue';
 
 export default {
+  name: 'home',
   components: {
     panelGroup,
     mainChart,

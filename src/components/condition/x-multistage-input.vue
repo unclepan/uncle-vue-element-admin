@@ -36,6 +36,7 @@
   </span>
 </template>
 <script>
+import message from 'lib/message';
 import {
   getPropString,
   getPropBoolean,
@@ -54,6 +55,7 @@ export default {
     fuc: getPropFunction(),
     modification: getPropString(),
     substr: getPropNumber(24),
+    rules: getPropArray(),
   },
   model: {
     prop: 'checked',
@@ -76,7 +78,7 @@ export default {
   methods: {
     valueChange(index) {
       if (this.modification === 'number') {
-        if (!/^\d+$/.test(this.changeData[index])) {
+        if (!(/^\d+$/.test(this.changeData[index]))) {
           this.changeData[index] = '';
         }
       }
@@ -89,8 +91,20 @@ export default {
       // });
     },
     inputBlur() {
-      this.visible = false;
-      this.fuc(this.changeDataLiteral);
+      let k = true;
+      if (this.rules.length) {
+        this.changeData.forEach((item, index) => {
+          if (!this.rules[index].v.test(this.changeData[index])) {
+            message.error(this.rules[index].m);
+            this.changeData[index] = '';
+            k = false;
+          }
+        });
+      }
+      if (k) {
+        this.visible = false;
+        this.fuc(this.changeDataLiteral);
+      }
     },
   },
 };

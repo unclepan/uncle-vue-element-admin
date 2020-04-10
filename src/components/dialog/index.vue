@@ -9,7 +9,12 @@
     <slot></slot>
     <span slot="footer" v-if="footer">
       <el-button @click="dialogVisible = false">{{$t('m.cancel')}}</el-button>
-      <el-button type="primary" @click="determine()">{{$t('m.determine')}}</el-button>
+      <el-button
+        :disabled="disabled"
+        type="primary"
+        @click="determine()">
+        {{$t('m.determine')}}
+      </el-button>
     </span>
   </el-dialog>
 </template>
@@ -24,6 +29,7 @@ export default {
     width: getPropString('30%'),
     title: getPropString('提示'),
     footer: getPropBoolean(true),
+    disabled: getPropBoolean(false),
   },
   components: {
   },

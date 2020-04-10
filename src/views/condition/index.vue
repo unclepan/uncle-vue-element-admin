@@ -48,6 +48,7 @@ import xDrawer from 'components/x-drawer.vue';
 import aside from 'components/x-aside.vue';
 
 export default {
+  name: 'condition',
   components: {
     xTitle,
     JsonViewer,

@@ -11,6 +11,7 @@ import list from './list.vue';
 import condition from './condition.vue';
 
 export default {
+  name: 'comprehensive',
   data() {
     return {
       filterccCondition: { // 与condition里的动态字段要一一对应

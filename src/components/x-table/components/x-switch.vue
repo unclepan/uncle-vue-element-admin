@@ -3,10 +3,11 @@
     <el-switch
       @change="change()"
       v-model="value"
-      :active-value="1"
-      :inactive-value="0"
+      :active-value="active"
+      :inactive-value="inactive"
       active-color="#13ce66"
-      inactive-color="#ff4949">
+      inactive-color="#ff4949"
+      v-bind="column.components.meta">
     </el-switch>
   </div>
 </template>
@@ -23,6 +24,14 @@ export default {
     return {
       value: this.row[this.column.prop],
     };
+  },
+  computed: {
+    active() {
+      return this.column.components.active === true ? true : 1;
+    },
+    inactive() {
+      return this.column.components.inactive === false ? false : 0;
+    },
   },
   components: {
   },

@@ -3,8 +3,16 @@
     <x-title>
       {{type.name}}
       <span slot="button">
-        <el-button size="mini" type="primary" @click="onSubmit()">确认{{type.but}}</el-button>
-        <el-button size="mini" @click="cancel()">取消</el-button>
+
+        <el-button
+          :disabled='type.operationDisabledFunc ? type.operationDisabledFunc() : false'
+          size="mini"
+          type="primary"
+          @click="onSubmit()">
+          确认{{type.but}}
+        </el-button>
+
+        <el-button size="mini" @click="cancel()">{{type.cancelText || '取消'}}</el-button>
         <template v-if="type.eventGroup && type.eventGroup.length">
           <el-button
             v-for="(item, index) in type.eventGroup"
@@ -15,7 +23,10 @@
       </span>
     </x-title>
 
-    <x-form ref="xForm" :formRender="formRender" />
+    <x-form
+      ref="xForm"
+      :formRender="formRender"
+      @fielsChange="(val)=>$emit('fielsChange', val)" />
   </div>
 </template>
 

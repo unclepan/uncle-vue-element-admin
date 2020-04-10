@@ -102,8 +102,8 @@ export default [
   },
   {
     id: '7',
-    menuName: 'iframe',
-    invokeUrl: `/iframe/${process.env.VUE_APP_IFRAME}`,
+    menuName: 'iframe.default',
+    invokeUrl: '/iframe/https%3A%2F%2Fwww.qq.com%2F?routerAliasName=iframe.qq',
     iconStr: 'iconproduct1',
     subMenus: [],
   },

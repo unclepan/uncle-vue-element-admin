@@ -23,12 +23,19 @@
       </component>
       <div style="text-align: right; margin-top: 20px">
         <el-button size="mini" @click="visible = false">取消</el-button>
-        <el-button type="primary" size="mini" @click="determine()">确定</el-button>
+        <el-button
+          :disabled="column.components.meta.disabled"
+          type="primary"
+          size="mini"
+          @click="determine()">
+          确定
+        </el-button>
       </div>
       <span slot="reference">
         <!-- 有别名用别名展示值 -->
-        <el-button type="text">{{row[column.aliasProp] || row[column.prop] || '--'}}</el-button>
-        <i class="el-icon-edit-outline"></i>
+        <el-tooltip :disabled="referenceText.length <= 16" class="item" effect="dark" :content="referenceText" placement="top">
+          <el-button type="text">{{referenceText | substr(16)}}<i class="el-icon-edit-outline"></i></el-button>
+        </el-tooltip>
       </span>
     </el-popover>
   </div>
@@ -48,6 +55,11 @@ export default {
       input: this.row[this.column.prop],
       visible: false,
     };
+  },
+  computed: {
+    referenceText() {
+      return this.row[this.column.aliasProp] || this.row[this.column.prop] || '--';
+    },
   },
   methods: {
     cb() {

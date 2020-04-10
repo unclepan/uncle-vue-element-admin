@@ -4,7 +4,9 @@
       ref="table"
       :data="fitTableData.row"
       border
+      :max-height="fitTableData.meta.maxHeight"
       @selection-change="fitTableData.meta.handleSelectionChange"
+      @expand-change="fitTableData.meta.handleExpandChange"
       style="width: 100%">
 
       <el-table-column
@@ -44,11 +46,12 @@
 
       <template v-for="(item) in fitTableDataColumn" >
         <el-table-column
+          :show-overflow-tooltip="item.tooltip"
           :fixed='item.fixed'
           :key="item.prop"
           :label="item.label"
           :width="item.width || 'auto'"
-          :align="item.align || 'center'"
+          :align="item.align || 'left'"
           min-width="180">
           <template slot-scope="scope" >
             <div v-if="item.components" :key="JSON.stringify(scope.row)">
@@ -77,11 +80,13 @@
         <template slot-scope="scope">
           <el-popover
             placement="left"
-            trigger="click">
+            trigger="hover">
             <div :class="$style['operation-but']">
               <div :class="$style.but" v-for="(item, index) in fitTableData.operation" :key="index">
                 <el-button
+                  v-if="item.showBtn ? !item.showBtn(scope.row) : true"
                   :disabled='item.disabledFunc ? item.disabledFunc(scope.row) : false'
+                  v-bind="item.meta"
                   @click="item.func(scope.row)"
                   size="mini"
                   :type="item.type || 'primary'"
@@ -104,6 +109,7 @@ import _ from 'lodash';
 import { getPropObject, getPropBoolean } from 'lib/vue-prop';
 import Sortable from 'sortablejs';
 import editPopover from './components/edit-popover.vue';
+import tooltip from './components/tooltip.vue';
 import xSwitch from './components/x-switch.vue';
 
 export default {
@@ -115,6 +121,7 @@ export default {
   components: {
     editPopover,
     xSwitch,
+    tooltip,
   },
   data() {
     return {
@@ -154,8 +161,10 @@ export default {
         row: [],
         operation: [],
         meta: {
+          maxHeight: '',
           selection: false,
           handleSelectionChange: () => {},
+          handleExpandChange: () => {},
           // 如果expandType为form，则是省略展示，用num处理。如果expandType为table，则是表格展示，用row里面的expandTableData展示。
           expand: {
             eswitch: false, // 折叠展示

@@ -22,6 +22,7 @@ import 'cropperjs/dist/cropper.css';
 import aside from 'components/x-aside.vue';
 
 export default {
+  name: 'components.cropper',
   components: {
     'x-aside': aside,
   },

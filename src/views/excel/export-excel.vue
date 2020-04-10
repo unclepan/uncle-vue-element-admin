@@ -15,6 +15,7 @@ import xTable from 'components/x-table/index.vue';
 import aside from 'components/x-aside.vue';
 
 export default {
+  name: 'excel.export',
   components: {
     xTable,
     'x-aside': aside,

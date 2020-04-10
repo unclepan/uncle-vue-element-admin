@@ -1,3 +1,5 @@
+import Layout from 'layout/index.vue';
+
 const dynamic = [
   {
     path: 'quill',
@@ -21,9 +23,9 @@ const dynamic = [
 
 export default [
   {
-    path: 'components',
+    path: '/components',
     name: 'components.default',
-    component: () => import('../../views/components-demo/layout.vue'),
+    component: Layout,
     redirect: 'noRedirect',
     meta: { title: 'components.default' },
     children: [

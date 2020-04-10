@@ -7,16 +7,17 @@
         <el-tooltip :disabled="visible || changeData.length < substr" effect="dark" :content="changeData||'请填写'" placement="top">
             <span :class="$style.text">
                 <span :class="$style.label">{{label}}：</span>
-                <el-input
-                    ref="input"
-                    @blur="inputBlur()"
-                    :class="$style.input"
-                    v-if="visible"
-                    size="mini"
-                    v-model="changeData"
-                    placeholder="请输入">
-                    <template v-if="append" slot="append">{{append}}</template>
-                </el-input>
+                <template v-if="visible">
+                  <el-input
+                      ref="input"
+                      :class="$style.input"
+                      size="mini"
+                      v-model="changeData"
+                      placeholder="请输入">
+                      <template v-if="append" slot="append">{{append}}</template>
+                  </el-input>
+                  <el-button @click.stop.prevent="inputBlur()" type="primary" size="mini">确定</el-button>
+                </template>
                 <span v-else>
                   {{changeData||'请填写' | substr(substr)}}
                   <span v-if="append">{{append}}</span>
@@ -27,11 +28,13 @@
     </span>
 </template>
 <script>
+import message from 'lib/message';
 import {
   getPropString,
   getPropBoolean,
   getPropNumber,
   getPropFunction,
+  getPropObject,
 } from 'lib/vue-prop';
 
 export default {
@@ -42,6 +45,7 @@ export default {
     pickUp: getPropBoolean(false),
     append: getPropString(),
     fuc: getPropFunction(),
+    rule: getPropObject(null),
   },
   model: {
     prop: 'checked',
@@ -72,8 +76,16 @@ export default {
       });
     },
     inputBlur() {
-      this.visible = false;
-      this.fuc(this.changeData);
+      let k = true;
+      if (this.rule && !this.rule.v.test(this.changeData)) {
+        message.error(this.rule.m);
+        this.changeData = '';
+        k = false;
+      }
+      if (k) {
+        this.visible = false;
+        this.fuc(this.changeData);
+      }
     },
   },
 };

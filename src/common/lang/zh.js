@@ -1,7 +1,6 @@
 export default {
   m: {
     details: '详情',
-    iframe: '外链视图',
     test: '测试',
     about: '关于',
     home: '首页',
@@ -20,6 +19,10 @@ export default {
     icon: '图标',
     documentation: '文档',
     condition: '筛选条件',
+    iframe: {
+      default: '外链视图',
+      qq: '腾讯',
+    },
     table: {
       default: '表格',
       dynamic: '动态表格',

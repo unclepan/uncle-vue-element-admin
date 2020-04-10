@@ -27,6 +27,7 @@ import xTable from 'components/x-table/index.vue';
 import xDrawer from 'components/x-drawer.vue';
 
 export default {
+  name: 'table.drag',
   data() {
     return {
       tableData: {

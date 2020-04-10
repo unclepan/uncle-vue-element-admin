@@ -25,6 +25,7 @@ import { quillEditor } from 'vue-quill-editor';
 import aside from 'components/x-aside.vue';
 
 export default {
+  name: 'components.quill',
   components: {
     quillEditor,
     'x-aside': aside,

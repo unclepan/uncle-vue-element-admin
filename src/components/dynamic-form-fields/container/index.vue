@@ -1,5 +1,8 @@
 <template>
-  <el-form-item :class="$style.container" :prop="`${param.name}`">
+  <el-form-item
+    :class="$style.container"
+    :prop="`${param.name}`"
+    :rules="param.rules">
     <span slot="label" v-if="param.label">
       {{param.label}}
       <el-tooltip placement="top" v-if="param.describe">
@@ -26,10 +29,10 @@ export default {
   margin-bottom: 18px;
   :global(.el-form-item__label){
     padding: 0;
-    line-height: 21px;
+    line-height:20px;
   }
   :global(.el-form-item__error){
-    padding-top: 5px;
+    padding-top: 3px;
   }
 }
 </style>

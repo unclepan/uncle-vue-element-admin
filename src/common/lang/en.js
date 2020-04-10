@@ -1,7 +1,6 @@
 export default {
   m: {
     details: 'Details',
-    iframe: 'View',
     test: 'Test',
     about: 'About',
     home: 'Home',
@@ -20,6 +19,10 @@ export default {
     icon: 'Icon',
     documentation: 'Documentation',
     condition: 'Condition',
+    iframe: {
+      default: 'View',
+      qq: 'QQ',
+    },
     table: {
       default: 'Table',
       dynamic: 'Dynamic Table',

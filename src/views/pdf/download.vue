@@ -15,6 +15,7 @@
 <script>
 
 export default {
+  name: 'pdfDownload',
   data() {
     return {
       article: '',

@@ -1,3 +1,5 @@
+import Layout from 'layout/index.vue';
+
 const dynamic = [
   {
     path: 'layout',
@@ -21,9 +23,9 @@ const dynamic = [
 
 export default [
   {
-    path: 'form',
+    path: '/form',
     name: 'form.default',
-    component: () => import('../../views/form/layout.vue'),
+    component: Layout,
     redirect: 'noRedirect',
     meta: { title: 'form.default' },
     children: [

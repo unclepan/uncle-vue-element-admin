@@ -15,6 +15,7 @@ import aside from 'components/x-aside.vue';
 import dialog from 'components/dialog/index.vue';
 
 export default {
+  name: 'components.dialog',
   components: {
     'x-dialog': dialog,
     'x-aside': aside,

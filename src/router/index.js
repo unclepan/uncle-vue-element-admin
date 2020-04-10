@@ -39,7 +39,7 @@ export const constantRoutes = [
         path: 'iframe/:url',
         component: () => import('@/views/iframe'),
         name: 'iframe',
-        meta: { title: 'iframe', ignore: true }, // ignore 忽略
+        meta: { title: 'iframe', ignore: true, noRefresh: true }, // ignore 忽略
       },
       {
         path: 'documentation',
@@ -83,10 +83,6 @@ export const constantRoutes = [
         component: () => import('../views/pdf/index.vue'),
         meta: { title: 'pdf' },
       },
-      ...Excel,
-      ...Table,
-      ...Form,
-      ...Components,
     ],
   },
   {
@@ -95,6 +91,10 @@ export const constantRoutes = [
     component: () => import('../views/pdf/download.vue'),
     meta: { title: 'pdfDownload' },
   },
+  ...Excel,
+  ...Table,
+  ...Form,
+  ...Components,
   { path: '*', redirect: '/404', hidden: true },
 
 ];

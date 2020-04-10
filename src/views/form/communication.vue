@@ -33,6 +33,7 @@ import aside from 'components/x-aside.vue';
 import xForm from 'components/dynamic-form-fields/form/index.vue';
 
 export default {
+  name: 'form.communication',
   data() {
     return {
       formRender: [

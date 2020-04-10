@@ -10,6 +10,7 @@
           v-for="(item, index) in tags"
           :key="index"
           :closable="!item.meta.affix">
+          <i v-if="!item.meta.noRefresh" class="el-icon-refresh" @click="$emit('refresh')"></i>
           {{$t(`m.${item.name}`)}}
         </el-tag>
       </vue-scroll>
@@ -87,12 +88,17 @@ export default {
       });
     },
     addTags() {
-      const { name, meta } = this.$route;
-      if (meta && meta.ignore) return;
+      let { name } = this.$route;
+      const { meta } = this.$route;
+      if (meta && meta.ignore) {
+        // fix:代码不通用，用于外链标识
+        name = this.fix();
+      }
       if (name) {
         if (this.tags.some(v => v.path === this.$route.path)) return;
         this.tags.push(Object.assign({}, this.$route, {
           title: this.$route.meta.title || 'no-name',
+          name,
         }));
       }
     },
@@ -120,6 +126,10 @@ export default {
       } else {
         this.$router.push('/');
       }
+    },
+    fix() { // 外链视窗才用
+      const { routerAliasName } = this.$route.query;
+      return `system.${routerAliasName}`;
     },
   },
 };
