@@ -30,6 +30,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 ### 目录结构
+```
 ├── mock                       # 项目mock 模拟数据
 ├── public                     # 静态资源
 │   │── favicon.ico            # favicon图标
@@ -59,3 +60,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ├── babel.config.js            # babel 配置
 ├── vue.config.js              # vue-cli 配置
 └── package.json               # package.json
+```
