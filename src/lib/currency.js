@@ -1,5 +1,8 @@
 export default function numberParseChina(nv) {
   let n = nv;
+  if (typeof nv !== 'number') {
+    n = 0;
+  }
   const fraction = ['角', '分', '厘'];
   const digit = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
   const unit = [
