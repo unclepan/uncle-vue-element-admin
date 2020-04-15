@@ -181,4 +181,11 @@ export default [
     iconStr: 'iconCurrencyConverter-fill',
     subMenus: [],
   },
+  {
+    id: '29',
+    menuName: 'qrcode',
+    invokeUrl: '/qrcode',
+    iconStr: 'iconfolder-fill',
+    subMenus: [],
+  },
 ];

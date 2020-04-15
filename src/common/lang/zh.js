@@ -53,6 +53,7 @@ export default {
     comprehensive: '综合实例',
     pdf: 'PDF',
     monitor: '埋点方案',
+    qrcode: '二维码',
   },
 
   guide: {

@@ -89,6 +89,12 @@ export const constantRoutes = [
         component: () => import('../views/monitor.vue'),
         meta: { title: 'monitor' },
       },
+      {
+        path: 'qrcode',
+        name: 'qrcode',
+        component: () => import('../views/qrcode.vue'),
+        meta: { title: 'qrcode' },
+      },
     ],
   },
   {
