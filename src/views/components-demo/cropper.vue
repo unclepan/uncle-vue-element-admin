@@ -67,7 +67,7 @@ export default {
   .container{
     display: flex;
     .img-container{
-      height: 600px;
+      width: 50%;
       overflow: hidden;
     }
     .afterCropper{

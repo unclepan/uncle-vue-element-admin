@@ -47,7 +47,7 @@ export default {
         this.$nextTick(() => {
           window.yangpanLoading.hide();
         });
-      }, 1000);
+      }, 1600);
       this.menuList = menus;
     },
     async logout() {
