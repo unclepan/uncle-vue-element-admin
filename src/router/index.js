@@ -39,7 +39,7 @@ export const constantRoutes = [
         path: 'iframe/:url',
         component: () => import('@/views/iframe'),
         name: 'iframe.default',
-        meta: { title: 'iframe.default', ignore: true, noRefresh: true }, // ignore 忽略
+        meta: { title: 'iframe.default', ignore: true, noRefresh: true }, // ignore 外链标识
       },
       {
         path: 'documentation',

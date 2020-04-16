@@ -17,7 +17,7 @@ const dynamic = [
     path: 'cropper',
     name: 'components.cropper',
     component: () => import('../../views/components-demo/cropper.vue'),
-    meta: { title: 'components.cropper' },
+    meta: { title: 'components.cropper', noRefresh: true }, // noRefresh: true =>不能在tags-view上刷新
   },
   {
     path: 'sortable',
