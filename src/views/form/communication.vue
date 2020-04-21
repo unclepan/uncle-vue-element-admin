@@ -2,7 +2,7 @@
   <div :class="$style.form">
     <div>
       <x-aside>
-        <span>动态表单（表单通信）：基于wolfy87-eventemitter 这个脚本将来自平台( 如 node.js )的事件的力量引入到浏览器，也可以采用传统通信方案</span>
+        <span>动态表单（表单通信）：基于wolfy87-eventemitter 这个脚本将来自平台( 如 node.js )的事件的力量引入到浏览器，也可以采用传统的Event bus通信方案。此方案支持“一对一”，“多对一”，“多对多”。</span>
       </x-aside>
     </div>
 

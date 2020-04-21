@@ -9,6 +9,7 @@
                 <span :class="$style.label">{{label}}：</span>
                 <template v-if="visible">
                   <el-input
+                      @blur="inputBlur()"
                       ref="input"
                       :class="$style.input"
                       size="mini"
