@@ -19,6 +19,18 @@ export default {
     icon: 'Icon',
     documentation: 'Documentation',
     condition: 'Condition',
+    login: {
+      default: 'Login',
+      started: "Hello! let's get started",
+      continue: 'Sign in to continue.',
+      keep: 'Keep me signed in',
+      forgot: 'Forgot password?',
+      sing: 'SING IN',
+      account: "Don't have an account? ",
+      create: 'Create',
+      rulesName: 'Enter one user name',
+      rulesPassword: 'Please input a password',
+    },
     iframe: {
       default: 'View',
       qq: 'QQ',

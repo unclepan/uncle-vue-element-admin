@@ -19,6 +19,18 @@ export default {
     icon: '图标',
     documentation: '文档',
     condition: '筛选条件',
+    login: {
+      default: '登陆',
+      started: '你好！我们开始吧',
+      continue: '继续登录操作',
+      keep: '保持登录状态',
+      forgot: '忘记密码?',
+      sing: '登陆',
+      account: '没有帐户？',
+      create: '创建',
+      rulesName: '请输入名称',
+      rulesPassword: '请输入密码',
+    },
     iframe: {
       default: '外链视图',
       qq: '腾讯',

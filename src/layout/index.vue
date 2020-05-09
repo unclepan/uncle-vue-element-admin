@@ -53,7 +53,7 @@ export default {
     async logout() {
       const stl = await message.confirm(this, '确认登出？');
       if (stl) {
-        // console.log('登出');
+        this.$router.push({ path: '/login' });
       }
     },
   },

@@ -25,6 +25,12 @@ export const constantRoutes = [
     meta: { title: '401' },
   },
   {
+    path: '/login',
+    component: () => import('@/views/login'),
+    name: 'login',
+    meta: { title: 'login' },
+  },
+  {
     path: '/',
     component: Layout,
     redirect: '/index',

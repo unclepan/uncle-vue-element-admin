@@ -2,8 +2,8 @@
   <div :class="$style.root">
     <vue-scroll :ops='ops'>
       <div :class="$style.menu" :style="{width: isCollapse ? '64px': '200px'}">
-        <img v-if="isCollapse" :class="$style.logo" src="@/assets/images/s-logo.png"/>
-        <img v-else :class="$style.logo" src="@/assets/images/l-logo.png"/>
+        <img v-if="isCollapse" :class="$style.logo" src="@/assets/images/logo-02.png"/>
+        <img v-else :class="$style.logo" src="@/assets/images/logo-01.png"/>
         <el-menu
             @open="open"
             @close="close"
