@@ -11,7 +11,7 @@
 
 <script>
 import message from 'lib/message';
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import sidebar from './components/sidebar/index.vue';
 import navbar from './components/navbar/index.vue';
 import menus from './components/sidebar/menus';
@@ -39,6 +39,9 @@ export default {
     this.init();
   },
   methods: {
+    ...mapMutations('user', [
+      'setUser',
+    ]),
     reloadView() {
       this.$refs.appMain.reload();
     },
@@ -58,6 +61,7 @@ export default {
     async logout() {
       const stl = await message.confirm(this, '确认登出？');
       if (stl) {
+        this.setUser(null);
         this.$router.push({ path: '/login' });
       }
     },
