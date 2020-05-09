@@ -8,6 +8,10 @@
       <in18 id="handler-in18"></in18>
       <screenfull :class="$style.screenfull" id="handler-screenfull"/>
 
+      <guide :key="$i18n.locale">
+        <span :class="$style.problem">{{$t('m.guide')}}</span>
+      </guide>
+
       <el-badge
         :value="badgeValue"
         :hidden="badgeValue===0"
@@ -16,9 +20,8 @@
         <i class="el-icon-message-solid"></i>
       </el-badge>
 
-      <guide :key="$i18n.locale">
-        <span :class="$style.problem">{{$t('m.guide')}}</span>
-      </guide>
+      <span :class="$style['user-name']">{{ userInfo.name }}</span>
+
       <el-dropdown @command="handleCommand" trigger="click">
         <el-avatar id="handler-personal-center" size="medium" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"></el-avatar>
         <el-dropdown-menu slot="dropdown">
@@ -47,6 +50,7 @@ export default {
   },
   computed: {
     ...mapState('app', ['isCollapse']),
+    ...mapState('user', ['userInfo']),
   },
   data() {
     return {
@@ -129,11 +133,14 @@ export default {
       margin: 0 5px;
     }
     .badge{
-      margin: 0 5px 0;
+      margin: 0 5px;
+    }
+    .user-name{
+      margin: 0 5px 0 20px;
     }
     .problem {
       cursor: pointer;
-      padding: 0 12px;
+      padding: 0 5px;
       color: #409EFF;
       font-size: 14px;
     }

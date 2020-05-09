@@ -3,7 +3,7 @@
     <sidebar :menuList='menuList'/>
     <div :class="$style['main-container']" :style="{paddingLeft: isCollapse ? '64px': '200px', minWidth: '960px'}">
       <navbar @logout="logout"/>
-       <tags-view id="handler-tags-view" @refresh="reloadView"/>
+      <tags-view id="handler-tags-view" @refresh="reloadView"/>
       <app-main ref="appMain" v-if="isShow"/>
     </div>
   </div>
@@ -33,6 +33,7 @@ export default {
   },
   computed: {
     ...mapState('app', ['isCollapse']),
+    ...mapState('user', ['userInfo']),
   },
   created() {
     this.init();
@@ -42,13 +43,17 @@ export default {
       this.$refs.appMain.reload();
     },
     init() {
-      setTimeout(() => {
+      if (this.userInfo) {
         this.isShow = true;
-        this.$nextTick(() => {
-          window.yangpanLoading.hide();
-        });
-      }, 1600);
-      this.menuList = menus;
+        setTimeout(() => {
+          this.$nextTick(() => {
+            window.yangpanLoading.hide();
+          });
+        }, 1600);
+        this.menuList = menus;
+      } else {
+        this.$router.push({ path: '/login' });
+      }
     },
     async logout() {
       const stl = await message.confirm(this, '确认登出？');

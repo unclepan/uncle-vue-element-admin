@@ -42,6 +42,7 @@
 
 <script>
 import in18 from 'components/in18/index.vue';
+import { mapMutations } from 'vuex';
 
 export default {
   components: {
@@ -84,9 +85,13 @@ export default {
 
   },
   methods: {
+    ...mapMutations('user', [
+      'setUser',
+    ]),
     login() {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
+          this.setUser(this.ruleForm);
           this.$router.push({ path: '/' });
         }
       });
