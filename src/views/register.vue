@@ -1,40 +1,41 @@
 <template>
-  <div :class="$style.login">
+  <div :class="$style.register">
     <div :class="$style.in18">
       <in18></in18>
     </div>
     <div :class="$style.main">
       <div :class="$style.form">
         <img :class="$style.logo" src="~/assets/images/logo-03.png"/>
-        <h2 :class="$style.title">{{$t('m.login.started')}}</h2>
-        <p :class="$style.text">{{$t('m.login.continue')}}</p>
+        <h2 :class="$style.title">{{$t('m.register.started')}}</h2>
+        <p :class="$style.text">{{$t('m.register.continue')}}</p>
         <el-form
           ref="ruleForm"
           :model="ruleForm"
           :rules="rules">
 
           <el-form-item prop="name">
-            <el-input :placeholder="$t('m.login.rulesName')" v-model="ruleForm.name" suffix-icon="el-icon-user" />
+            <el-input :placeholder="$t('m.register.rulesName')" v-model="ruleForm.name" suffix-icon="el-icon-user" />
+          </el-form-item>
+
+          <el-form-item prop="email">
+            <el-input :placeholder="$t('m.register.rulesEmail')" v-model="ruleForm.email" suffix-icon="el-icon-message" />
           </el-form-item>
 
           <el-form-item prop="password">
-            <el-input :placeholder="$t('m.login.rulesPassword')" v-model="ruleForm.password" type="password"  suffix-icon="el-icon-lock"/>
+            <el-input :placeholder="$t('m.register.rulesPassword')" v-model="ruleForm.password" type="password"  suffix-icon="el-icon-lock"/>
           </el-form-item>
 
           <el-form-item>
-            <div :class="$style.foot">
-              <el-checkbox v-model="checked">{{$t('m.login.keep')}}</el-checkbox>
-              <b>{{$t('m.login.forgot')}}</b>
-            </div>
+           <el-checkbox v-model="checked">{{$t('m.register.conditions')}}</el-checkbox>
           </el-form-item>
 
           <el-form-item>
-            <el-button @click="login" :class="$style['login-btn']" type="primary">
-              {{$t('m.login.sing')}}
+            <el-button @click="register" :class="$style['register-btn']" type="primary">
+              {{$t('m.register.sing')}}
             </el-button>
           </el-form-item>
         </el-form>
-        <p :class="$style.account">{{$t('m.login.account')}}<router-link :to="{ path: '/register' }" :class="$style.link">{{$t('m.login.create')}}</router-link></p>
+        <p :class="$style.account">{{$t('m.register.account')}}<router-link :to="{ path: '/login' }" :class="$style.link">{{$t('m.register.login')}}</router-link></p>
       </div>
     </div>
   </div>
@@ -53,14 +54,21 @@ export default {
         name: [
           {
             required: true,
-            message: this.$t('m.login.rulesName'),
+            message: this.$t('m.register.rulesName'),
+            trigger: 'change',
+          },
+        ],
+        email: [
+          {
+            required: true,
+            message: this.$t('m.register.rulesEmail'),
             trigger: 'change',
           },
         ],
         password: [
           {
             required: true,
-            message: this.$t('m.login.rulesPassword'),
+            message: this.$t('m.register.rulesPassword'),
             trigger: 'change',
           },
         ],
@@ -73,6 +81,7 @@ export default {
       checked: '',
       ruleForm: {
         name: '',
+        email: '',
         password: '',
       },
     };
@@ -84,10 +93,10 @@ export default {
 
   },
   methods: {
-    login() {
+    register() {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
-          this.$router.push({ path: '/' });
+          this.$router.push({ path: '/login' });
         }
       });
     },
@@ -96,7 +105,7 @@ export default {
 </script>
 
 <style lang="scss" module>
-.login{
+.register{
   .in18{
     text-align: right;
     float: right;
@@ -132,11 +141,7 @@ export default {
         padding-bottom: 30px;
         font-weight:300;
       }
-      .foot {
-        display: flex;
-        justify-content: space-between;
-      }
-      .login-btn{
+      .register-btn{
         width: 100%;
       }
       .account{
@@ -148,4 +153,5 @@ export default {
     }
   }
 }
+
 </style>

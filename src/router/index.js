@@ -31,6 +31,12 @@ export const constantRoutes = [
     meta: { title: 'login' },
   },
   {
+    path: '/register',
+    component: () => import('@/views/register'),
+    name: 'register',
+    meta: { title: 'register' },
+  },
+  {
     path: '/',
     component: Layout,
     redirect: '/index',
