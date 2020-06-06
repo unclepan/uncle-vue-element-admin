@@ -58,7 +58,7 @@ export default {
             trigger: 'change',
           },
           {
-            min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'change',
+            min: 2, max: 15, message: '长度在 2 到 15 个字符', trigger: 'change',
           },
         ],
         password: [

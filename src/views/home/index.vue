@@ -2,7 +2,7 @@
   <div :class="$style['home-container']">
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
     <main-chart ref='mainChart'/>
-    <el-row :gutter="20" :class="$style['other-chart']">
+    <el-row :gutter="10" :class="$style['other-chart']">
       <el-col :span="8"><pie-chart/></el-col>
       <el-col :span="16"><bar-chart/></el-col>
     </el-row>
@@ -39,7 +39,7 @@ export default {
 <style lang="scss" module>
 .home-container{
   .other-chart{
-    margin-top: 20px;
+    margin-top: 10px;
   }
 }
 </style>

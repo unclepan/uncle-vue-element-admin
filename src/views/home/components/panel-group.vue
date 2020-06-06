@@ -1,5 +1,5 @@
 <template>
-  <el-row :gutter="20" :class="$style['panel-group']">
+  <el-row :gutter="10" :class="$style['panel-group']">
     <el-col :xs="12" :sm="12" :lg="6" :class="$style['card-panel-col']" v-for="(item, index) in panelData" :key="index">
       <el-card shadow="hover">
         <div :class="$style['card-panel']" @click="handleSetLineChartData(item.type)">
@@ -75,7 +75,7 @@ export default {
 <style lang="scss" module>
 .panel-group{
   .card-panel-col {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     .card-panel {
       display: flex;
       justify-content: flex-start;

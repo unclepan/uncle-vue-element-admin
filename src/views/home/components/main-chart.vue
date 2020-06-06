@@ -178,6 +178,6 @@ export default {
 <style lang="scss" module>
 .echarts-wrap{
   background: #ffffff;
-  padding: 20px;
+  padding: 30px;
 }
 </style>

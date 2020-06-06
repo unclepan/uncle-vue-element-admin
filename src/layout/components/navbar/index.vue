@@ -20,7 +20,7 @@
         <i class="el-icon-message-solid"></i>
       </el-badge>
 
-      <span :class="$style['user-name']">{{ userInfo.name }}</span>
+      <span :class="$style['user-name']" v-if="userInfo">{{ userInfo.name }}</span>
 
       <el-dropdown @command="handleCommand" trigger="click">
         <el-avatar id="handler-personal-center" size="medium" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"></el-avatar>
