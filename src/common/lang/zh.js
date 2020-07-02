@@ -22,7 +22,7 @@ export default {
     login: {
       default: '登陆',
       started: '你好！欢迎登陆管理系统',
-      continue: '输入信息，让我们继续吧',
+      continue: '输入信息，让我们继续吧(用户名: admin, 密码: admin)',
       keep: '保持登录状态',
       forgot: '忘记密码？',
       sing: '登陆',

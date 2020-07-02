@@ -22,7 +22,7 @@ export default {
     login: {
       default: 'Login',
       started: "Hello! let's get started",
-      continue: 'Sign in to continue.',
+      continue: 'Sign in to continue. (user: admin, pass: admin)',
       keep: 'Keep me signed in',
       forgot: 'Forgot password?',
       sing: 'SING IN',
