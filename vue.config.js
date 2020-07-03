@@ -15,6 +15,15 @@ module.exports = {
     open: true,
     disableHostCheck: true,
   },
+  chainWebpack: (config) => {
+    config.plugin('html').tap((args) => {
+      // eslint-disable-next-line no-param-reassign
+      args[0].chunksSortMode = _chuck => (_chuck.names[0].indexOf('loading') > -1 ? -1 : 1); // 将loading.js模块加载提前
+      return args;
+    });
+
+    config.output.filename('[name].[hash:8].js').end();
+  },
   configureWebpack: {
     entry: {
       loading: './src/entry/loading/index.js',
